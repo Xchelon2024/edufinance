@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+
+{% block summary %}
+
+           
+                <!-- [ Layout content ] Start -->
+                <div class="layout-content">
+
+                    <!-- [ content ] Start -->
+                    <div class="container-fluid flex-grow-1 container-p-y">
+                        <h4 class="font-weight-bold py-3 mb-0">Students</h4>
+                        <div class="text-muted small mt-0 mb-3 d-block breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href=""><i class="feather icon-home"></i></a></li>
+                                <li class="breadcrumb-item"><a href="{% url 'invoice-list' %}">Student List</a></li>
+                                <li class="breadcrumb-item active"></li>
+                            </ol>
+                        </div>
+
+                        <div class="row">
+                            <!-- 3rd row Start -->
+                            
+                            <div class="col-xl-12">
+                                <div class="card mb-4">
+                                   
+                                    <div class="card-body">
+                            <div class="col alert alert-info">
+                              <h5>Instruction</h5>
+                              <p>Please <a href="{% url 'download-csv' %}">download the CSV file attached here</a>. Fill in the sheet and upload the same file back to this page. DO NOT EDIT THE FIRST ROW</p>
+                            </div>
+
+                            <form method="POST" enctype="multipart/form-data">
+                              {% csrf_token %}
+                              {% include 'corecode/form_snippet.html' %}
+
+                              <input type="submit" class="btn btn-success" value="Submit">
+                            </form>
+
+                                                          </div>
+                                                        </div>
+                                                      </div>
+                                                      <!-- 3rd row Start -->
+                                                  </div>
+                                              </div>
+                                              <!-- [ content ] End -->
+
+                                           
+                                          </div>
+                <!-- [ Layout content ] Start -->
+{% endblock summary %}
+
+
+
+{% block morejs %}
+
+
+{% endblock morejs %}
